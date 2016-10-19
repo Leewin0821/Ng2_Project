@@ -12,6 +12,11 @@ import { NoteCreator } from './shared/components/home/notes/note-creator/index'
 import { Home } from './shared/components/home/index'
 import { NoteService } from './shared/services/notes'
 import { ApiService } from './shared/services/api'
+import { About } from './shared/components/about/index'
+import { AuthComponent } from './shared/components/auth/auth.component'
+import { AppRoutingModule } from './app-routing.module'
+import { MainComponent } from './main/main.components'
+import { AuthService } from './shared/services/auth.service'
 
 @NgModule({
   declarations: [
@@ -21,16 +26,21 @@ import { ApiService } from './shared/services/api'
     Notes,
     NoteCard,
     ColorPicker,
-    NoteCreator
+    NoteCreator,
+    About,
+    AuthComponent,
+    MainComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
   providers: [
     NoteService,
-    ApiService
+    ApiService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

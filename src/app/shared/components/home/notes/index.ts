@@ -8,11 +8,7 @@ import {NoteService} from "../../../../shared/services/notes";
 })
 
 export class Notes {
-    notes = [{
-      title: 'aaa',
-      value: 'bbb',
-      color: 'red'
-    } ]
+    notes = []
 
     constructor(private noteService: NoteService) {
         this.noteService.getNotes().subscribe(res => this.notes = res.data)

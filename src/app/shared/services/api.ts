@@ -1,14 +1,14 @@
 import { Response, Http, Headers } from '@angular/http'
 import { Injectable } from '@angular/core'
 import { Observable } from 'rxjs'
-import toPairs = require('lodash/toPairs')
+import * as _ from 'lodash'
 
 @Injectable()
 export class ApiService {
-  api_url: string = 'http://localhost:3500'
+  api_url: string = 'http://localhost:3500';
   headers: Headers = new Headers( {
     'Accept': 'application/json'
-  } )
+  } );
 
   constructor( private http: Http ) {
   }
@@ -54,6 +54,6 @@ export class ApiService {
   }
 
   setHeaders( headers: { [key: string]: string } ): void {
-    toPairs( headers ).forEach( ( [key, value] ) => this.headers.set( key, value ) )
+    _.toPairs( headers ).forEach( ( [key, value] ) => this.headers.set( key, value ) )
   }
 }

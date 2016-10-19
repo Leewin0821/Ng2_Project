@@ -8,7 +8,7 @@ import {NoteService} from "../../../../shared/services/notes";
 })
 
 export class Notes {
-    notes = []
+    notes = [];
 
     constructor(private noteService: NoteService) {
         this.noteService.getNotes().subscribe(res => this.notes = res.data)
@@ -16,7 +16,7 @@ export class Notes {
 
     checkCard(note) {
         this.noteService.completeNote(note).subscribe(note => {
-            let index = this.notes.findIndex(localNote => localNote.id === note.id)
+            let index = this.notes.findIndex(localNote => localNote.id === note.id);
             this.notes.splice(index, 1)
         })
     }

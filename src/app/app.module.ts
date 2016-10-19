@@ -10,6 +10,8 @@ import { NoteCard } from './shared/components/home/notes/note-card/index'
 import { ColorPicker } from './shared/components/home/notes/note-creator/color-picker/index'
 import { NoteCreator } from './shared/components/home/notes/note-creator/index'
 import { Home } from './shared/components/home/index'
+import { NoteService } from './shared/services/notes'
+import { ApiService } from './shared/services/api'
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { Home } from './shared/components/home/index'
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    NoteService,
+    ApiService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-// import {NoteService} from "../../../../shared/services/notes";
+import {NoteService} from "../../../../shared/services/notes";
 
 @Component({
     selector: 'notes',
@@ -14,20 +14,20 @@ export class Notes {
       color: 'red'
     } ]
 
-    // constructor(private noteService: NoteService) {
-    //     this.noteService.getNotes().subscribe(res => this.notes = res.data)
-    // }
-    //
-    // checkCard(note) {
-    //     this.noteService.completeNote(note).subscribe(note => {
-    //         let index = this.notes.findIndex(localNote => localNote.id === note.id)
-    //         this.notes.splice(index, 1)
-    //     })
-    // }
-    //
-    // addNote(note) {
-    //     this.noteService.createNote(note).subscribe(note => {
-    //         this.notes.push(note)
-    //     })
-    // }
+    constructor(private noteService: NoteService) {
+        this.noteService.getNotes().subscribe(res => this.notes = res.data)
+    }
+
+    checkCard(note) {
+        this.noteService.completeNote(note).subscribe(note => {
+            let index = this.notes.findIndex(localNote => localNote.id === note.id)
+            this.notes.splice(index, 1)
+        })
+    }
+
+    addNote(note) {
+        this.noteService.createNote(note).subscribe(note => {
+            this.notes.push(note)
+        })
+    }
 }

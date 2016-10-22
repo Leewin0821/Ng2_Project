@@ -21,7 +21,7 @@ export class ApiService {
     if ( response.status >= 200 && response.status < 400 ) {
       return response
     } else {
-      let err = new Error( response.statusText )
+      let err = new Error( response.statusText );
       throw err
     }
   }
